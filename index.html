@@ -7,6 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function mostrarclima(a){
+            if(a<-10){
+                return "Muy frio";
+            }else if(a<=-15){
+                return "Frio";
+            }else if(a<=25){
+                return "Templado";
+            }else if(a<=40){
+                return "Calor";
+            }
+            return "Muy caluroso";
+        }
+        let x = 0;
+        document.write("Clima: " + mostrarclima(x));
+    </script>
 </body>
 </html>
