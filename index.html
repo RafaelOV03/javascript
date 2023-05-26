@@ -7,21 +7,131 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        function mostrarclima(a){
-            if(a<-10){
-                return "Muy frio";
-            }else if(a<=-15){
-                return "Frio";
-            }else if(a<=25){
-                return "Templado";
-            }else if(a<=40){
-                return "Calor";
+    <h1>Practica 3</h1>
+    <h2>Nombre: Rafael Kadir Oporto Valencia</h2>
+    <h3>1. Desarrolle una función en JavaScript que permita leer una temperatura
+        en grados Celsius y devuelva el clima según la siguiente tabla:</h3>
+        <table>
+            <tr>
+                <td><strong>Temperatura</strong></td>
+                <td><strong>Clima</strong></td>
+            </tr>
+            <tr>
+                <td>-10 °C , 15 °C </td>
+                <td>Frio</td>
+            </tr>
+            <tr>
+                <td>16 °C , 25 °C </td>
+                <td>Templado</td>
+            </tr>
+            <tr>
+                <td>26 °C , 40 °C </td>
+                <td>Calor</td>
+            </tr>
+        </table>
+        <p>Temperatura:</p>
+        <form action="">
+            <input id = "x" type = "number" value = "20">
+            <input type = "button" onclick="ejercicio1()" value="Guardar">
+        </form>
+
+        <script>
+            function ejercicio1(){
+                function mostrarclima(a){
+                    if(a<-10){
+                        return "Muy frio";
+                    }else if(a<=15){
+                        return "Frio";
+                    }else if(a<=25){
+                        return "Templado";
+                    }else if(a<=40){
+                        return "Calor";
+                    }
+                    return "Muy caluroso";
+                }
+                let x = parseInt(document.getElementById("x").value);
+                document.getElementById("rx").textContent = "Clima: " + mostrarclima(x);
             }
-            return "Muy caluroso";
-        }
-        let x = 0;
-        document.write("Clima: " + mostrarclima(x));
-    </script>
+        </script>
+        <p id = "rx">Clima: </p>
+
+
+    <h3>2. Desarrolle una función en JavaScript que permita leer un número y
+        devuelva el factorial del mismo.
+        Ejemplo. N= 5 Proceso 1*2*3*4*5 Resultado = 120</h3>
+        <form action="">
+            <input id = "y" type = "number" value = "5">
+            <input type = "button" onclick="ejercicio2()" value="Guardar">
+        </form>
+         
+        <script>
+            function ejercicio2(){
+                function factorial(a){
+                    let f = 1;
+                    for (let i = a; i > 0; i--){
+                        f = f * i;
+                    }
+                    return f;
+                }
+                let y = parseInt(document.getElementById("y").value);
+                document.getElementById("ry").textContent = "El factorial es: " + factorial(y);
+            }
+        </script>
+        <p id = "ry">El factorial es: </p>
+
+    <h3>3. Desarrolle una función en JavaScript que muestre el algoritmo Fizz-Buzz
+        (Este algoritmo se basa en que se debe hacer un contador desde el
+        número 1 al número 100, en orden correlativo, pero cada vez que un
+        número sea múltiplo de 3, debe decir Fizz y cada vez que un número sea
+        múltiplo de 5, debe decir Buzz, en el caso que un número sea múltiplo de
+        3 y 5, debe decir FizzBuzz, si el número no es múltiplo de 3 o 5 no
+        mostrara nada)
+        </h3>
+        <form action="">
+            <input type = "button" onclick="ejercicio3()" value="Iniciar">
+        </form>
+             
+        <script>
+            function ejercicio3(){
+                function fizzbuzz(){
+                    let str = "";
+                    for (let i = 1; i <= 100; i++){
+                        document.write(i + ": ");
+                        if(i%3==0){
+                            document.write("Fizz");
+                        }
+                        if(i%5==0){
+                            document.write("Buzz");
+                        }
+                        document.write("<br>");
+                    }
+                }
+                fizzbuzz();
+            }
+        </script>
+
+        
+    <h3>4. Desarrolle una función en JavaScript que muestre la fecha actual.
+        Ejemplo: Jueves, 25 de Mayo del 2023</h3>
+        <form action="">
+            <input type = "button" onclick="ejercicio4()" value="Fecha">
+        </form>
+             
+        <script>
+            function ejercicio4(){
+                function fecha(){
+                    let fecha = new Date();
+                    let mes = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+                    let dia = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+
+                    fecha.getDate();
+                    return dia[fecha.getDay()-1] + ", " + fecha.getDate() + " de " + mes[fecha.getMonth()] + " del " + fecha.getFullYear();
+                }
+                document.getElementById("rz").textContent = ("La fecha es: " + fecha());
+            }
+        </script>
+        <p id = "rz">La fecha es: </p>
+        
+
 </body>
 </html>
